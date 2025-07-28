@@ -6,8 +6,8 @@ const trackData = {
     audio: "assets/audio/track1.mp3"
   },
   track2: {
-    title: "focus",
-    artist: "Roxie",
+    title: "ballout prod miso",
+    artist: "pray4prae",
     cover: "assets/img/track2.jpg",
     audio: "assets/audio/track2.mp3"
   },
