@@ -1,0 +1,279 @@
+:root {
+    --bg-color: #0e0e0e;
+    --glass-bg: rgba(255, 255, 255, 0.06);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --text-color: #ffffff;
+    --accent-color: #1db954;
+    --blur: 20px;
+    --transition: 0.3s ease;
+  }
+  
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color);
+    backdrop-filter: blur(var(--blur));
+    background-image: radial-gradient(circle at top left, #1db95411, transparent),
+                      radial-gradient(circle at bottom right, #ffffff09, transparent);
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--blur));
+    border-bottom: 1px solid var(--glass-border);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  
+  header .logo {
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    font-weight: bold;
+  }
+  
+  nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    margin-left: 1rem;
+    transition: color var(--transition);
+  }
+  
+  nav a:hover {
+    color: var(--accent-color);
+  }
+  
+  #track-detail {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem 2rem;
+    min-height: 100vh;
+  }
+  
+  .track-container {
+    display: flex;
+    flex-direction: row;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 2rem;
+    backdrop-filter: blur(var(--blur));
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+    gap: 2rem;
+    height: 100%;
+    width: 1000px;
+  }
+  
+  #track-cover {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  }
+  
+  .track-meta {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  #track-title {
+    font-size: 2.5rem;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+  }
+  
+  #track-artist {
+    font-size: 1.2rem;
+    color: #ccc;
+    margin-bottom: 2rem;
+  }
+  
+  .audio-custom {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    padding: 1rem 1.5rem;
+    border-radius: 20px;
+    backdrop-filter: blur(var(--blur));
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .audio-controls {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .audio-controls button {
+    background: transparent;
+    border: none;
+    color: var(--accent-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-top: 1.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+  }
+  
+  .audio-controls button:hover {
+    transform: scale(1.2);
+  }
+  
+  #waveform {
+    width: 100%;
+    height: 60px;
+    background: transparent;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.9rem;
+    color: #aaa;
+    border-top: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--blur));
+  }
+  .volume-bar {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 25px;
+  }
+  
+  .volume-toggle {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 8px rgba(255,255,255,0.2);
+    transition: background 0.3s;
+  }
+  
+  .volume-toggle:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .volume-slider {
+    display: none;
+    width: 100px;
+    height: 14px;
+    margin-top: 5px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 10px rgba(255,255,255,0.1);
+  }
+  
+  .volume-bar.show .volume-slider {
+    display: block;
+  }
+  
+  .volume-slider input[type="range"] {
+    -webkit-appearance: none;
+    background: transparent;
+    cursor: pointer;
+  }
+  
+  .volume-slider input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 14px;
+    height: 14px;
+    background: #1db954;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(29, 185, 84, 0.5);
+  }
+  
+  .volume-slider input[type="range"]::-moz-range-thumb {
+    width: 14px;
+    height: 14px;
+    background: #1db954;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(29, 185, 84, 0.5);
+  }
+  #loop {
+    background: rgba(255, 255, 255, 0.08);
+    border: none;
+    padding: 10px 14px;
+    border-radius: 50%;
+    font-size: 18px;
+    color: #fff;
+    backdrop-filter: blur(8px);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  }
+  
+  #loop:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: scale(1.1);
+  }
+  
+  #loop.active {
+    color: #1db954;
+    background: rgba(29, 185, 84, 0.15);
+  }
+  .modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: auto;
+  background: rgba(0,0,0,0.55);
+  justify-content: center;
+  align-items: center;
+}
+.cover-modal-content {
+  background: transparent;
+  margin: 0 auto;
+  padding: 0;
+  border-radius: 20px;
+  box-shadow: none;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: modalIn 0.2s;
+}
+@keyframes modalIn {
+  from { transform: scale(0.95); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+.close-modal {
+  position: absolute;
+  top: 12px;
+  right: 24px;
+  font-size: 2em;
+  color: #fff;
+  cursor: pointer;
+  transition: color 0.2s;
+  z-index: 10;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+.close-modal:hover {
+  color: var(--accent-color);
+}
+  

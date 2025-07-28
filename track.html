@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Track Info</title>
+  <link rel="stylesheet" href="track.css" />
+  <script src="https://unpkg.com/wavesurfer.js"></script>
+</head>
+<body>
+  <header>
+    <div class="logo">MySound</div>
+    <nav>
+      <a href="index.html">Назад к лайкам</a>
+    </nav>
+  </header>
+  <section id="track-detail">
+    <div class="track-container">
+      <img id="track-cover" src="" alt="Cover" />
+      <div class="track-meta">
+        <h2 id="track-title">Загрузка...</h2>
+        <p id="track-artist"></p>
+        <div class="audio-custom">
+          <div id="waveform"></div>
+          <div class="audio-controls">
+            <button id="prev">⏮</button>
+            <button id="play">▶️</button>
+            <button id="next">⏭</button>
+            <button id="loop" title="Повтор">⟳</button>
+          </div>
+          <div class="volume-bar" id="volume-bar">
+            <button class="volume-toggle" id="volume-toggle">🔊</button>
+            <div class="volume-slider" id="volume-slider">
+              <input type="range" id="volume" min="0" max="1.5" step="0.01" value="0.75" />
+            </div>
+          </div>          
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <footer>
+    <p>&copy; 2025 MySound.Все права защищены.</p>
+  </footer>
+  <div id="cover-modal" class="modal" style="display:none;">
+    <div class="modal-content cover-modal-content">
+      <span class="close-modal" id="close-cover-modal">&times;</span>
+      <img id="modal-cover-img" src="" alt="Cover" style="max-width:90vw; max-height:80vh; display:block; margin:auto; border-radius:16px; box-shadow:0 0 32px rgba(0,0,0,0.5);" />
+    </div>
+  </div>
+  <script src="track.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const cover = document.getElementById('track-cover');
+      const modal = document.getElementById('cover-modal');
+      const modalImg = document.getElementById('modal-cover-img');
+      const closeBtn = document.getElementById('close-cover-modal');
+      if (cover && modal && modalImg && closeBtn) {
+        cover.style.cursor = 'zoom-in';
+        cover.addEventListener('click', function() {
+          modalImg.src = cover.src;
+          modal.style.display = 'flex';
+        });
+        closeBtn.addEventListener('click', function() {
+          modal.style.display = 'none';
+        });
+        modal.addEventListener('click', function(e) {
+          if (e.target === modal) {
+            modal.style.display = 'none';
+          }
+        });
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'Escape' && modal.style.display === 'flex') {
+            modal.style.display = 'none';
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

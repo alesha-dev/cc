@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>MySound</title>
+   <link rel="stylesheet" href="style.css">
+   <script src="https://unpkg.com/wavesurfer.js"></script>
+ </head>
+ <body>
+   <div id="mini-player">
+     <img id="mini-cover" src="" alt="cover">
+     <div class="mini-info">
+       <span id="mini-title">Название</span>
+       <span id="mini-artist">Исполнитель</span>
+     </div>
+     <div id="mini-waveform"></div> <div class="mini-controls">
+       <button id="mini-loop" title="Повтор">⟳</button>
+       <button id="mini-prev">⏮</button>
+       <button id="mini-play">▶️</button>
+       <button id="mini-next">⏭</button>
+       <button id="mini-volume-toggle" title="Громкость">🔊</button>
+       <div id="mini-volume-slider" class="mini-volume-slider" style="display: none;">
+         <input type="range" id="mini-volume" min="0" max="2" step="0.01" value="0.75" />
+       </div>
+     </div>
+   </div>
+   <header>
+     <div class="logo">MySound</div> 
+     <nav>
+       <a href="#" id="show-hotkeys">Клавиши</a>
+     </nav>
+   </header>
+   <section id="mySection">
+     <h1>Добро пожаловать в MySound</h1>
+     <p>Здесь вы можете просматривать, слушать и переключаться между любимыми треками с удобным мини-плеером и визуализацией звука.</p>
+   </section>
+   <button id="toggleButton">Ok</button>
+   <section id="likes">
+    <!--потому что не сделал загрузку треков написал так-->
+     <h2>Остальные треки:</h2>
+     <div class="track-list">
+       <div class="track-card" onclick="openTrack('track1')">
+         <img src="assets/img/track1.jpg" alt="Track 1 cover">
+         <div class="track-info">
+           <h3>imgettintmoney</h3>
+           <p>legion</p>
+         </div>
+       </div>
+       <div class="track-card" onclick="openTrack('track2')">
+         <img src="assets/img/track2.jpg" alt="Track 2 cover">
+         <div class="track-info">
+           <h3>ballout prod miso</h3>
+           <p>pray4prae</p>
+         </div>
+       </div>
+       <div class="track-card" onclick="openTrack('track3')">
+         <img src="assets/img/track3.jpg" alt="Track 3 cover">
+         <div class="track-info">
+           <h3>rip x im god</h3>
+           <p>06LAW</p>
+         </div>
+       </div>
+       <div class="track-card" onclick="openTrack('track4')">
+         <img src="assets/img/track4.jpg" alt="Track 4 cover">
+         <div class="track-info">
+           <h3>{[REVERSED]} (LUCI4 MIX) MANNA EATER (PROD. TRVSH) #S.KKKULT</h3>
+           <p>Axtya</p>
+         </div>
+       </div>
+       <div class="track-card" onclick="openTrack('track5')">
+         <img src="assets/img/track5.jpg" alt="Track 5 cover">
+         <div class="track-info">
+           <h3>Princess</h3>
+           <p>Feng</p>
+         </div>
+       </div>
+       <div class="track-card" onclick="openTrack('track6')">
+         <img src="assets/img/track6.jpg" alt="Track 6 cover">
+         <div class="track-info">
+           <h3>ugly god - i beat my meat (kltekk version)</h3>
+           <p>4solu</p>
+         </div>
+       </div>
+       <div class="track-card" onclick="openTrack('track7')">
+         <img src="assets/img/track7.jpg" alt="Track 7 cover">
+         <div class="track-info">
+           <h3>lucy (prod. michael harrison)</h3>
+           <p>3hresekii</p>
+         </div>
+       </div>
+       <div class="track-card" onclick="openTrack('track8')">
+         <img src="assets/img/track8.jpg" alt="Track 8 cover">
+         <div class="track-info">
+           <h3>LUCKI ft Lil Yachty - greed x Im god</h3>
+           <p>scattpaks</p>
+         </div>
+       </div>
+       <div class="track-card" onclick="openTrack('track9')">
+         <img src="assets/img/track9.jpg" alt="Track 9 cover">
+         <div class="track-info">
+           <h3>jaydes & wifiskeleton - "untitlded 263364"t</h3>
+           <p>jaydes,wifiskeleton</p>
+         </div>
+       </div>
+       <div class="track-card" onclick="openTrack('track10')">
+         <img src="assets/img/track10.jpg" alt="Track 10 cover">
+         <div class="track-info">
+           <h3>Only Love Can Break Your Heart (Masters At Work Dub)</h3>
+           <p>St Etienne</p>
+         </div>
+       </div>
+       <div class="track-card" onclick="openTrack('track11')">
+         <img src="assets/img/track11.jpg" alt="Track 11 cover">
+         <div class="track-info">
+           <h3>you will never change,</h3>
+           <p>keepsecrets</p>
+         </div>
+       </div>
+       <div class="track-card" onclick="openTrack('track12')">
+         <img src="assets/img/track12.jpg" alt="Track 12 cover">
+         <div class="track-info">
+           <h3>Yayo</h3>
+           <p>Garcon Maigre</p>
+         </div>
+       </div>
+       <div class="track-card" onclick="openTrack('track13')">
+         <img src="assets/img/track13.jpg" alt="Track 13 cover">
+         <div class="track-info">
+           <h3>D1RTYTRU3YJ3AN$ - MIFFYxSLOTH</h3>
+           <p>DEMONCLIQUE</p>
+         </div>
+       </div>
+       <div class="track-card" onclick="openTrack('track14')">
+         <img src="assets/img/track14.jpg" alt="Track 14 cover">
+         <div class="track-info">
+           <h3>Hello Juliet</h3>
+           <p>Clarion</p>
+         </div>
+       </div>
+       <div class="track-card" onclick="openTrack('track15')">
+         <img src="assets/img/track15.jpg" alt="Track 15 cover">
+         <div class="track-info">
+           <h3>GUILTY CONSCIENCE (prod.max.com)</h3>
+           <p>braidedpiercing</p>
+         </div>
+       </div>
+       <div class="track-card" onclick="openTrack('track16')">
+         <img src="assets/img/track16.jpg" alt="Track 16 cover">
+         <div class="track-info">
+           <h3>Doormat</h3>
+           <p>suerjin</p>
+         </div>
+       </div>
+       <div class="track-card" onclick="openTrack('track17')">
+         <img src="assets/img/track17.jpg" alt="Track 17 cover">
+         <div class="track-info">
+           <h3>what zit tooya 432Hz Audio</h3>
+           <p>xaviersobased</p>
+         </div>
+       </div>
+       <div class="track-card" onclick="openTrack('track18')">
+         <img src="assets/img/track18.jpg" alt="Track 18 cover">
+         <div class="track-info">
+           <h3>unallowed</h3>
+           <p>jaydes</p>
+         </div>
+       </div>
+       <div class="track-card" onclick="openTrack('track19')">
+         <img src="assets/img/track19.jpg" alt="Track 19 cover">
+         <div class="track-info">
+           <h3>All i need</h3>
+           <p>Clams Casino</p>
+         </div>
+       </div>
+       <div class="track-card" onclick="openTrack('track20')">
+         <img src="assets/img/track20.jpg" alt="Track 20 cover">
+         <div class="track-info">
+           <h3>YKT(RARI)</h3>
+           <p>STUSSY</p>
+         </div>
+       </div>
+       <div class="track-card" onclick="openTrack('track21')">
+         <img src="assets/img/track21.jpg" alt="Track 21 cover">
+         <div class="track-info">
+           <h3>MOUNTAIN DEW (Prod. by Hi-c)</h3>
+           <p>Hi-C x DOMD</p>
+         </div>
+       </div>
+       <div class="track-card" onclick="openTrack('track22')">
+         <img src="assets/img/track22.jpg" alt="Track 22 cover">
+         <div class="track-info">
+           <h3>fuxk everybody over</h3>
+           <p>4jay</p>
+         </div>
+       </div>
+       <div class="track-card" onclick="openTrack('track23')">
+         <img src="assets/img/track23.jpg" alt="Track 23 cover">
+         <div class="track-info">
+           <h3>im not alright prod heroine dreamnote</h3>
+           <p>Awfultop</p>
+         </div>
+       </div>
+       <div class="track-card" onclick="openTrack('track23')">
+         <img src="assets/img/track24.jpg" alt="Track 24 cover">
+         <div class="track-info">
+           <h3>frank woods</h3>
+           <p>textkill</p>
+         </div>
+       </div>
+     </div>
+   </section>
+
+   <section id="top-tracks">
+     <h2>Самые прослушиваемые треки:</h2>
+     <div class="top-tracks-chart">
+       </div>
+   </section>
+
+   <footer>
+     <p>&copy; 2025 MySound. Все права защищены.</p>
+   </footer>
+   <script>
+     function openTrack(trackId) {
+       localStorage.setItem("currentTrack", trackId);
+       window.location.href = `track.html?track=${trackId}`;
+     }
+   </script>
+     <script src="script.js"></script>
+   <div id="hotkeys-modal" class="modal" style="display:none;">
+     <div class="modal-content">
+       <span class="close-modal" id="close-hotkeys">&times;</span>
+       <h2>Горячие клавиши</h2>
+       <ul style="list-style:none; padding:0;">
+          <li><b>Пробел</b> — Воспроизведение/Пауза</li>
+         <li><b>←</b> — Предыдущий трек</li>
+         <li><b>→</b> — Следующий трек</li>
+         <li><b>L</b> — Повтор трека</li>
+         <li><b>M</b> — Вкл/выкл звук</li>
+       </ul>
+     </div>
+   </div>
+ </body>
+ </html>
