@@ -400,8 +400,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const tooltip = document.createElement('span');
     tooltip.classList.add('bar-tooltip');
-    
-    // Создаем элементы для названия, автора и прослушиваний
+        // говнокод
     const titleArtistDiv = document.createElement('div');
     titleArtistDiv.classList.add('tooltip-title-artist');
     titleArtistDiv.textContent = `${trackInfo.artist} - ${trackInfo.title}`;
