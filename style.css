@@ -11,7 +11,7 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(-45deg, #1db954, #121212, #afc0b6, #181818, #19da5c);
+  background: linear-gradient(-45deg, #224b30, #121212, #181818, #315c40);
   background-size: 400% 400%;
   animation: gradientBG 16s ease infinite;
   color: var(--text-color);
@@ -88,7 +88,6 @@ section {
   background-size: 200% 200%;
   animation: mySectionGradient 10s ease-in-out infinite;
   padding: 60px 20px;
-  border: 2px solid var(--accent-color);
   border-radius: 18px;
   min-height: 100vh;
   margin: 0;
@@ -233,7 +232,82 @@ section {
   padding: 1rem;
   border-radius: 10px;
 }
+.review-section {
+    padding: 3rem 2rem;
+    background-color: transparent;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    margin: 3rem auto;
+    max-width: 90%;
+    position: relative;
+}
 
+.review-section h1 {
+    font-weight: 800;
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 3rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.scroll-container {
+    overflow: hidden;
+}
+
+.scroll-track {
+    display: flex;
+    white-space: nowrap;
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease-out;
+}
+
+/* Применяем основную анимацию к первому ряду */
+.track-1 {
+    animation: scroll-loop 30s linear infinite;
+}
+
+/* Применяем ту же анимацию, но в обратном направлении, ко второму ряду */
+.track-2 {
+    animation: scroll-loop 35s linear infinite reverse;
+}
+
+.scroll-container:hover .scroll-track {
+    animation-play-state: paused;
+}
+
+.scroll-card {
+    min-width: 280px;
+    margin: 0 2rem;
+    color: #fff;
+    background: linear-gradient(45deg, #494949 0%, #2e2e2e 100%);
+    font-size: 1.1rem;
+    height: 3.5rem;
+    padding: 1rem 1.8rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.scroll-card:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* Единая анимация для обоих рядов */
+@keyframes scroll-loop {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-150%);
+    }
+}
 .audio-player img {
   width: 120px;
   height: 120px;
@@ -535,4 +609,3 @@ footer {
 .close-modal:hover {
   color: var(--accent-color);
 }
-

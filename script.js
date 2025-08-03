@@ -144,7 +144,7 @@ const trackData = {
     audio: "assets/audio/track24.mp3"
   },
 };
-
+// хз почему на главной не смог добавить чтоб засчитывало прослушивания,багается 
 const miniKeys = Object.keys(trackData);
 let miniWavesurfer;
 let miniIsLooping = false;
@@ -400,7 +400,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const tooltip = document.createElement('span');
     tooltip.classList.add('bar-tooltip');
-        // говнокод
+    
+    // говнокод
     const titleArtistDiv = document.createElement('div');
     titleArtistDiv.classList.add('tooltip-title-artist');
     titleArtistDiv.textContent = `${trackInfo.artist} - ${trackInfo.title}`;
